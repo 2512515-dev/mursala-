@@ -1,0 +1,35 @@
+/* css/responsive.css: Phones and reduced-motion */
+
+@media(max-width:860px) {
+  .hero {
+    grid-template-columns: 1fr
+  }
+  .ipod {
+    grid-template-columns: 1fr
+  }
+  .tl::before {
+    left: 12px
+  }
+  .ev,.ev:nth-child(even) {
+    width: auto;
+    margin-left: 36px
+  }
+  .ev::after,.ev:nth-child(even)::after {
+    left: -32px;
+    right: auto
+  }
+  .mini {
+    max-width: 100%
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before {
+    animation: none!important;
+    transition: none!important
+  }
+  .rv {
+    opacity: 1;
+    transform: none
+  }
+}

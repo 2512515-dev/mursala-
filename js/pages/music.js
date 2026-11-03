@@ -1,0 +1,11 @@
+// js/pages/music.js
+// Page: Playlist
+
+function music() {
+    const s = S.songs[cur], art = s?.art && U[s.art];
+    return `<h2>Our playlist</h2><p>Songs only play when you press play.</p>
+<div class="ipod"><div class="scr"><div class="art" ${art ? `style="background-image:url('${U[s.art]}')"` : ''}>${art ? '' : '♪'}</div><div><b>${esc(s?.title || 'Nothing playing')}</b><span>${esc(s?.artist || 'Add songs in edit mode')}</span></div><div class="bars ${A.paused ? '' : 'pl'}"><u></u><u></u><u></u><u></u><u></u></div><input type="range" id="seek" min="0" max="1000" value="0" aria-label="Progress"><span id="tm">0:00 / 0:00</span></div>
+<div><div class="wheel"><span class="mt">MUSIC</span><button class="pr" data-a="prev" aria-label="Previous">${ic('prev', 22)}</button><button class="nx" data-a="next" aria-label="Next">${ic('next', 22)}</button><button class="c" id="pp" data-a="pp" aria-label="Play or pause">${ic(A.paused ? 'play' : 'pause', 22)}</button></div><label style="display:block;margin-top:14px;font-size:12px">Volume<input type="range" id="vol" min="0" max="100" value="${A.volume * 100}"></label></div></div>
+<div class="edb card" style="max-width:560px;margin:auto"><b>Add songs</b><br><label class="btn sm">Upload audio<input type="file" accept="audio/*" multiple data-up="song" hidden></label><p class="note">Or paste a link to audio you have the rights to use:</p><input class="field" id="su" placeholder="https://…/song.mp3"><input class="field" id="st" placeholder="Title"><input class="field" id="sa" placeholder="Artist"><button class="btn sm" data-a="adds">Add link</button></div>
+${S.songs.length ? `<ol class="songs">${S.songs.map((x, i) => `<li class="${i == cur ? 'on' : ''}"><button class="t" data-a="ps" data-id="${i}">${esc(x.title)} <small>${esc(x.artist)}</small></button><span class="edb"><input class="field" style="width:110px" data-c="songs" data-id="${x.id}" data-f="title" value="${esc(x.title)}"><input class="field" style="width:90px" data-c="songs" data-id="${x.id}" data-f="artist" value="${esc(x.artist)}"></span><label class="btn sm edo">Art<input type="file" accept="image/*" data-up="art" data-id="${x.id}" hidden></label><button class="btn sm edo" data-a="dels" data-id="${x.id}" aria-label="Delete song">×</button></li>`).join('')}</ol>` : '<div class="empty">The playlist is empty.</div>'}`;
+}

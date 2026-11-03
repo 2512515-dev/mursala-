@@ -1,0 +1,64 @@
+/* css/base.css: Colours, fonts, page background */
+
+:root {
+  --paper: #f4ead7;
+  --kraft: #c9a47c;
+  --wine: #7b2233;
+  --rose: #e6a9b1;
+  --ink: #2b211b;
+  --hand: 'Gaegu','Segoe Print',cursive;
+  --type: 'Special Elite','Courier New',monospace;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top,0px);
+  padding-bottom: env(safe-area-inset-bottom,0px)
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top,0px)
+}
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  margin: 0;
+  background: var(--paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .3 0 0 0 0 .2 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  color: var(--ink);
+  font: 15px/1.6 var(--type);
+  overflow-x: hidden
+}
+
+h1,h2,h3 {
+  font-family: var(--hand);
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 0
+}
+
+h1 {
+  font-size: clamp(40px,6vw,68px)
+}
+
+h2 {
+  font-size: clamp(32px,4vw,46px)
+}
+
+h3 {
+  font-size: 26px
+}
+
+a {
+  color: inherit
+}
+
+button,input,textarea {
+  font: inherit;
+  color: inherit
+}
+
+:focus-visible {
+  outline: 3px solid var(--wine);
+  outline-offset: 3px
+}

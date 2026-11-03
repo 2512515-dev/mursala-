@@ -1,0 +1,121 @@
+/* css/layout.css: Header, navigation, buttons, page frame, edit-mode switches */
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 22px;
+  padding: 14px 5vw;
+  border-bottom: 2px solid var(--ink);
+  margin: 0 2vw;
+  position: relative;
+  z-index: 5
+}
+
+.logo {
+  font: 700 30px/1 var(--hand);
+  text-decoration: none;
+  margin-right: auto
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  font-family: var(--hand);
+  font-size: 21px
+}
+
+nav a {
+  text-decoration: none;
+  padding: 0 2px;
+  border-bottom: 3px solid transparent
+}
+
+nav a.on,nav a:hover {
+  border-color: var(--wine)
+}
+
+.mini {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  max-width: 190px
+}
+
+.mini span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  color: var(--paper);
+  border: 0;
+  padding: 10px 18px;
+  font: 700 20px var(--hand);
+  cursor: pointer;
+  text-decoration: none;
+  transform: rotate(-1deg);
+  transition: transform .2s,background .2s;
+  clip-path: polygon(0 8%,3% 0,98% 3%,100% 0,100% 94%,97% 100%,2% 97%,0 100%)
+}
+
+.btn:hover {
+  transform: rotate(1deg) scale(1.05);
+  background: var(--wine)
+}
+
+.btn.sm {
+  padding: 5px 12px;
+  font-size: 17px
+}
+
+.btn.ic {
+  padding: 8px
+}
+
+.lnk {
+  font: 700 20px var(--hand);
+  margin-left: 14px;
+  text-decoration: underline wavy var(--wine);
+  text-underline-offset: 5px;
+  background: none;
+  border: 0;
+  cursor: pointer
+}
+
+main {
+  padding: 34px 5vw 70px;
+  max-width: 1280px;
+  margin: auto;
+  position: relative
+}
+
+#app {
+  animation: pg .55s cubic-bezier(.2,.8,.3,1)
+}
+
+@keyframes pg {
+  from {
+    opacity: 0;
+    transform: translateY(16px) rotate(-.7deg)
+  }
+}
+
+.edo,.edb {
+  display: none
+}
+
+.ed .edo {
+  display: inline-flex
+}
+
+.ed .edb {
+  display: block
+}
