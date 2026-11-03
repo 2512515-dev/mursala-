@@ -20,7 +20,7 @@ const AFTER = {
         };
         $('#vol').oninput = e => A.volume = e.target.value / 100;
         A.ontimeupdate();
-    }, timeline() {
+    }, cards: mountCardPack, timeline() {
         const o = new IntersectionObserver(es => es.forEach(x => {
             if (x.isIntersecting) {
                 x.target.classList.add('in');
