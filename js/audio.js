@@ -30,6 +30,7 @@ function sync(re) {
     $('#mp').innerHTML = ic(A.paused ? 'play' : 'pause');
     $('#mp').setAttribute('aria-label', A.paused ? 'Play' : 'Pause');
     $('#mt').textContent = s ? s.title + ' · ' + s.artist : 'No song yet';
+    paintWidgets();
     if (re && location.hash === '#music')
         render();
     else {
@@ -46,4 +47,5 @@ A.ontimeupdate = A.onloadedmetadata = () => {
     const t = $('#tm');
     if (t)
         t.textContent = fmt(A.currentTime) + ' / ' + fmt(A.duration);
+    paintWidgets();
 };

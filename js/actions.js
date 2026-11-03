@@ -65,6 +65,13 @@ const ACT = {
         }
     },
     pp: toggle, prev: () => nextS(-1), next: () => nextS(1), ps: (t, id) => playIdx(+id), cm: hide,
+    mwp(t, id) {
+        const i = S.songs.findIndex(x => x.id == id);
+        if (i === cur)
+            toggle();
+        else
+            playIdx(i);
+    },
     tear: tearPack,
     swipe: swipeTop,
     delc(t, id) {

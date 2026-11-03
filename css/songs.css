@@ -122,8 +122,23 @@
   color: #2b211b
 }
 
-.mw.playing .mw-lyrics-inner {
-  animation: lyr var(--lyr-dur,40s) linear infinite
+.mw-info {
+  min-width: 0;
+  flex: 1;
+  display: block
+}
+
+.mw-prog {
+  margin-top: 12px;
+  height: 2px;
+  background: #2b211b55
+}
+
+.mw-prog i {
+  display: block;
+  height: 100%;
+  width: calc(var(--p,0) * 100%);
+  background: #2b211b
 }
 
 .mw.playing .mw-play {
@@ -131,13 +146,15 @@
   color: #c9a47c
 }
 
-@keyframes lyr {
-  from {
-    transform: translateY(0)
-  }
-  to {
-    transform: translateY(-50%)
-  }
+.memory {
+  min-width: 0
+}
+
+.spread .sticky-note {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 3
 }
 
 .mw-empty {
