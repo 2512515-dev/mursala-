@@ -27,14 +27,17 @@
 }
 
 .art {
+  flex: 0 0 auto;
+  width: min(130px,100%);
   aspect-ratio: 1;
-  background: linear-gradient(135deg,var(--rose),var(--wine)) center/cover;
+  background: linear-gradient(135deg,var(--rose),var(--wine)) center/cover no-repeat;
+  border: 3px solid #fffdf5;
+  box-shadow: 0 2px 6px #0005;
   display: grid;
   place-items: center;
   font-size: 40px;
-  border-radius: 3px;
-  max-height: 130px;
-  margin: auto
+  color: #fffdf5;
+  margin: 4px auto 0
 }
 
 .scr b {
