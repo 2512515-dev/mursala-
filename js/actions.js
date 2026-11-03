@@ -3,13 +3,17 @@
 
 async function upload(kind, fs, id) {
     for (const f of fs) {
-        if (kind === 'photos' || kind === 'rep' || kind === 'tl' || kind === 'art') {
+        if (kind === 'photos' || kind === 'rep' || kind === 'tl' || kind === 'art' || kind === 'card') {
             if (!f.type.startsWith('image/'))
                 continue;
             const k = await saveFile(f, 1);
             if (kind === 'photos')
                 S.photos.unshift({
                     id: uid(), file: k, cap: '', date: today(), note: '', r: Math.round(Math.random() * 8 - 4)
+                });
+            else if (kind === 'card')
+                S.cards.unshift({
+                    id: uid(), file: k, cap: '', r: Math.round(Math.random() * 6 - 3)
                 });
             else {
                 const o = kind === 'rep' ? S.photos.find(x => x.id == id) : kind === 'tl' ? S.tl.find(x => x.id == id) : S.songs.find(x => x.id == id), fk = kind === 'tl' ? 'photo' : kind === 'art' ? 'art' : 'file';
@@ -61,6 +65,19 @@ const ACT = {
         }
     },
     pp: toggle, prev: () => nextS(-1), next: () => nextS(1), ps: (t, id) => playIdx(+id), cm: hide,
+    pk() {
+        if (!S.cards.length)
+            return toast('The pack is empty. Turn on edit mode to add cards.');
+        const c = pick(S.cards);
+        show(`<figure class="pol" style="max-width:min(360px,92vw);transform:rotate(-2deg);animation:unf .5s">${U[c.file] ? `<img src="${U[c.file]}" alt="${esc(c.cap)}" style="aspect-ratio:auto;max-height:70vh;cursor:default">` : ''}<figcaption>${esc(c.cap)}</figcaption><button class="x" data-a="cm" aria-label="Close">×</button></figure>`);
+    },
+    delc(t, id) {
+        const c = S.cards.find(x => x.id == id);
+        delB(c.file);
+        S.cards = S.cards.filter(x => x !== c);
+        save();
+        render();
+    },
     lb(t, id) {
         const p = S.photos.find(x => x.id == id);
         show(`<figure class="pol" style="max-width:min(480px,92vw);transform:rotate(-1deg);animation:unf .5s"><img src="${U[p.file]}" alt="${esc(p.cap)}" style="aspect-ratio:auto;max-height:70vh;cursor:default"><figcaption>${esc(p.cap)}</figcaption><small>${fd(p.date)}</small><button class="x" data-a="cm" aria-label="Close">×</button></figure>`);

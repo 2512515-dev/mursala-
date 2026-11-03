@@ -28,7 +28,7 @@ if (!RM)
             toast('Offline: showing the last saved copy');
         }
     }
-    await Promise.all([...S.photos.map(p => loadU(p.file)), ...S.songs.flatMap(s => [loadU(s.file), loadU(s.art)]), ...S.tl.map(e => loadU(e.photo))]);
+    await Promise.all([...S.photos.map(p => loadU(p.file)), ...S.songs.flatMap(s => [loadU(s.file), loadU(s.art)]), ...S.tl.map(e => loadU(e.photo)), ...S.cards.map(c => loadU(c.file))]);
     sync();
     render();
 })();

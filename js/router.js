@@ -2,7 +2,7 @@
 // Page switching: picks the page from the #hash and draws it.
 
 const P = {
-    home, memories, letters, music, surprises, timeline
+    home, memories, letters, music, surprises, timeline, cards
 };
 const AFTER = {
     surprises() {

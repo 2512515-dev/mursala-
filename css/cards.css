@@ -1,0 +1,62 @@
+/* css/cards.css
+   Card pack page and card stack. */
+
+.pack-wrap {
+  display: grid;
+  place-items: center;
+  margin: 24px 0;
+}
+
+.pack {
+  width: min(220px, 60vw);
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: var(--ink);
+  transition: transform .3s ease;
+}
+
+.pack img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 12px 24px rgba(43, 33, 27, .25);
+}
+
+.pack span {
+  display: block;
+  margin-top: 8px;
+  font: 16px/1.5 var(--type);
+  text-align: center;
+}
+
+.pack:hover,
+.pack:focus-visible {
+  transform: rotate(-2deg) translateY(-4px);
+}
+
+.pack:focus-visible {
+  outline: 3px solid var(--wine);
+  outline-offset: 4px;
+}
+
+.card-stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.card-stack img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  cursor: zoom-in;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pack {
+    transition: none;
+  }
+}
