@@ -5,7 +5,7 @@ const D = {
     cfg: {
         her: 'Her Name', me: 'My Name', start: '2024-02-14', cdDate: '2027-02-14', cdLabel: 'Our anniversary', intro: 'I made you a little corner of the internet, full of us. Take your time. Open everything.', env: 'You are my favourite part of every day.', miss: 'Breathe. I am thinking of you right now, and I will see you soon. Go drink some water, then play our song.', pin: ''
     },
-    photos: [], songs: [],
+    photos: [], songs: [], cards: [],
     letters: [{
             id: 'l1', title: 'Read me first', typed: true, hidden: false, body: 'Dear {her},\n\nThis is a placeholder letter. In edit mode you can rewrite it, add more, and hide some until she finds them.\n\nAlways yours,\n{me}'
         }, {

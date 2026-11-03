@@ -1,6 +1,6 @@
-# Our Little Universe
+# Our Scrapbook
 
-A six-page digital scrapbook: Home, Memories, Letters, Playlist, Surprises, Timeline.
+A seven-page digital scrapbook: Home, Memories, Letters, Playlist, Surprises, Timeline, Cards.
 Plain HTML, CSS and JavaScript. No build step, nothing to install.
 
 ## Folder map
@@ -12,6 +12,8 @@ css/
   layout.css          Header, navigation, buttons, edit-mode switches
   components.css      Polaroids, tape, cards, envelopes, forms, popups
   pages.css           Music player, surprises, timeline, effects
+  songs.css           Song widgets and memory spreads
+  cards.css           Card pack page and card stack
   responsive.css      Phones, reduced motion
 js/
   config.js           YOUR TWO SUPABASE VALUES GO HERE (the only file you must edit)
@@ -19,7 +21,8 @@ js/
   utils.js            Small helpers (icons, toast, hearts, typing effect)
   cloud.js            Sign-in, saving content, uploading files
   audio.js            Music player that keeps playing between pages
-  pages/              One file per page: home, memories, letters, music, surprises, timeline
+  pages/              One file per page: home, memories, letters, music, surprises, timeline, cards
+  pack3d.js           The 3D card pack (Three.js, loaded as a module)
   router.js           Switches pages from the #hash in the address
   actions.js          Clicks, typing, uploads, drag and drop
   main.js             Start-up
@@ -33,7 +36,7 @@ supabase/setup.sql    Paste into Supabase once to create storage and lock editin
 3. Authentication > Users > Add user (your email and a password, tick Auto Confirm).
 4. Project Settings > API: copy the Project URL and the legacy `anon` key (starts with `eyJ`).
 5. Open `js/config.js` and paste both values between the quotes.
-6. Go to app.netlify.com/drop and drag the whole `our-little-universe` folder in.
+6. Go to app.netlify.com/drop and drag the whole `our-scrapbook` folder in.
 
 ## Editing the site
 
